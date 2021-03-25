@@ -1,0 +1,145 @@
+<!--
+Campus IL - EdX platform and ecommerce themes
+Copyright (C) 2021 Campus IL
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
+
+## mako
+<%namespace name='static' file='static_content.html'/>
+<%!
+from django.utils.translation import ugettext as _
+%>
+% if not uses_bootstrap:
+   <link rel="stylesheet" href="${static.url('css/fastyle.css')}" type="text/css" media="all" />
+
+<section class="footer-main">
+<div class="grid-manual grid-container">
+  <div class="row">
+    
+
+
+    <div class="col col-12 sm-col-12 md-col-8 grid-container">
+      <div class="col col-4">
+        <ul>
+          <li>
+              ## Translators: This message is used as a label for a list of links that navigate to about pages on the website.
+              ${_("About platform")}
+          </li>
+          <li>
+            <a class="ru" href="/about">${_("About")}</a>
+          </li>
+          <li>
+            <a class="ru" href="/news">${_("Technically requirements")}</a>
+          </li>
+        </ul>
+      </div>
+
+
+      <div class="col col-4">
+        <ul>
+          <li>
+              ## Translators: This message is used as a label for a list of links that navigate to support pages on the website.
+              ${_("Support")}
+          </li>
+          <li>
+            <a class="ru" href="/contact">${_("Contact Us")}</a>
+          </li>
+          <li><a  class="ru" href="mailto:online@fa.ru">${_("Ask a question")}</a></li>
+
+          <li>
+            <a class="ru" href="/faq">${_("FAQ")}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col col-4">
+        <ul>
+          <li>
+              ## Translators: This message is used as a label for a list of links that navigate to support pages on the website.
+              ${_("Legal")}
+          </li>
+          <li>
+            <a class="ru" href="/honor">${_("Privacy Policy")}</a>
+          </li>
+          <li>
+            <a class="ru" href="/tos">${_("Terms of Service & Honor Code")}</a>
+          </li>
+
+        </ul>
+      </div>   
+    </div>
+
+
+
+    <div class="col col-12 sm-col-12 md-col-4 footer-logo">
+      
+      <ul id="ctl00_ctl114_ctl01_SocialWrapper" class="footer-social">
+
+        <li>
+            <a target="_blank" href="https://www.facebook.com/financialuniversity">
+                <span class="icon-fb-gray"></span>
+            </a>
+        </li>
+
+        <li>
+            <a target="_blank" href="https://twitter.com/FinUniver">
+                <span class="icon-tw-gray"></span>
+            </a>
+        </li>
+
+        <li>
+            <a target="_blank" href="https://www.youtube.com/user/FinUniversity">
+                <span class="icon-yt-gray"></span>
+            </a>
+        </li>
+
+        <li>
+            <a target="_blank" href="https://vk.com/finuniversity">
+                <span class="icon-vk-gray"></span>
+            </a>
+        </li>
+
+        <li>
+            <a target="_blank" href="https://www.instagram.com/finuniversity">
+                <span class="icon-in-gray"></span>
+            </a>
+        </li>
+
+        <li>
+            <a target="_blank" href="https://telegram.me/finuniverchan">
+                <span class="icon-tg-gray"></span>
+            </a>
+        </li>
+
+        <li>
+            <a target="_blank" href="https://fotki.yandex.ru/users/financeuniver">
+                <span class="icon-ya-gray"></span>
+            </a>
+        </li>
+        <li>
+          ФИНАНСОВЫЙ УНИВЕРСИТЕТ © ® 
+      </li>
+        <!-- <li><a href="/"><img src="${static.url('images/logo_text.png')}" alt="Logo" /></a></li> -->
+    </ul>
+
+
+
+    </div>
+  </div>
+</div>
+</section>
+% endif
+<script type="text/javascript">
+    $(".${LANGUAGE_CODE}").css('display', 'block');
+</script>

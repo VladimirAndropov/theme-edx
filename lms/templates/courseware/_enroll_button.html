@@ -1,0 +1,63 @@
+<!--
+Campus IL - EdX platform and ecommerce themes
+Copyright (C) 2021 Campus IL
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
+
+## mako
+<%!
+from django.utils.translation import ugettext as _
+%>
+
+<%
+  btn_text = _("Enroll in {course_name}").format(course_name=course.display_number_with_default)
+  btn_href = ecommerce_checkout_link or "#"
+  btn_class = "register"
+%>
+% if user.is_authenticated() and registered:
+  % if show_courseware_link:
+    <%
+      btn_text = _("View Course")
+      btn_href = course_target
+      btn_class = ""
+    %>
+  % else:
+    <%
+      btn_text = _("You are enrolled in this course")
+      btn_class = "disabled"
+    %>
+  % endif
+% elif is_course_full:
+  <%
+    btn_text = _("Course is full")
+    btn_class = "disabled"
+  %>
+% elif invitation_only and not can_enroll:
+  <%
+    btn_text = _("Enrollment in this course is by invitation only")
+    btn_class = "disabled"
+  %>
+% elif not is_shib_course and not can_enroll:
+  <%
+    btn_text = _("subscribe")
+    btn_href = ("#subscribe")
+    btn_class = ""
+  %>
+% elif user.is_authenticated() and professional_mode:
+  <% btn_class = "" %>
+% endif
+<a href="${btn_href}" class="btn-block btn-success btn-large btn-enroll ${btn_class}">
+  ${btn_text}
+</a>

@@ -1,0 +1,115 @@
+<!--
+Campus IL - EdX platform and ecommerce themes
+Copyright (C) 2021 Campus IL
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
+
+## mako
+<%namespace name='static' file='static_content.html'/>
+
+<%
+from django.utils.translation import ugettext as _ 
+
+import branding
+import re
+import csv
+import ast
+import json
+
+ratings_dict = {}
+try:
+      with open("/ratings/dump/aggregates.csv") as csv_file:
+          readCSV = csv.reader(csv_file, delimiter='\t')
+          try:
+              for row in readCSV:
+                  if not (row):
+                      continue
+                  else:
+                      try:
+                          ratings_dict[row[0]] = {"aggregate": row[1]}
+                      except:
+                          pass
+          except:
+              pass
+
+except:
+      pass
+
+sort_ratings = sorted(ratings_dict.items(), key=lambda x: x[1], reverse=True)
+sort_ratings_dict = sort_ratings[:12]
+
+%>
+      
+<section class="courses-section" id="top">
+  <div class="courses-container">
+    <div class="highlighted-courses">
+
+      % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
+        <section class="courses">
+
+          <div class="grid-manual">
+            <div class="row">
+              <div class="col col-12 text-center">
+                <h2>
+                  % if homepage_overlay_html:
+                  <span class="course-list-heading">
+                    ${homepage_overlay_html | n, decode.utf8}
+                  </span>
+                  % endif
+                  <span class="course-list-heading ru"> Лучшие курсы от ведущих преподавателей страны</span>
+                  <span class="course-list-heading ar"> كامبوس- المشروع الوطني للتعليم الرقمّي، من قبل وزارة المساواة الإجتماعية</span>
+                  <span class="course-list-heading en"> Best courses from best instructors</span>
+                </h2>
+              </div>
+            </div>
+
+            <div class="row program-list">
+              % for program in programs_list[:3]:
+               <div class="col col-12 sm-col-12 md-col-4 lg-col-4">
+                   <%include file="program.html" args="program=program" />
+               </div>
+              % endfor
+            </div>
+
+
+
+            
+            
+              <div class="row course-list">
+              % for item in sort_ratings_dict:
+                  <%
+                  filtered_visible_ids = {'display_number_with_default':item[0]}
+                  course_list=branding.get_visible_courses(filter_=filtered_visible_ids)
+                  course = course_list[-1] 
+                  %>
+                  <div class="col col-12 sm-col-12 md-col-4 lg-col-4">
+                  <div class="courses-listing-item">
+                    <%include file="course.html" args="course=course" />
+                  </div>
+                  </div>
+              % endfor
+              </div>
+            
+            <div class="courses-more">
+              <a class="courses-more-cta" href="${marketing_link('COURSES')}"> ${_("View all Courses")} </a>
+            </div>
+          
+          </div>
+        </section>
+      % endif
+
+    </div>
+  </div>
+</section>

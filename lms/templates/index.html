@@ -1,0 +1,138 @@
+<!--
+Campus IL - EdX platform and ecommerce themes
+Copyright (C) 2021 Campus IL
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
+
+## mako
+<%inherit file="main.html" />
+<%namespace name='static' file='static_content.html'/>
+<%!
+from django.utils.translation import ugettext as _
+from django.core.urlresolvers import reverse
+import os
+import csv
+%>
+<%
+# establish variables/global dicts
+filestore = "/edx/app/edxapp/edx-platform/lms/templates/insights.csv"
+
+count_all=21025
+count_change_7_days_all=1345
+cumulative_count_all =21352
+totalrows =8
+cumulative_verified_all =0
+
+with open(filestore) as csv_file:
+    readCSV = csv.DictReader(csv_file, delimiter=',')
+    for row in readCSV:
+        totalrows += 1
+        count_all +=(int(row['count']))
+        count_change_7_days_all +=(int(row['count_change_7_days']))
+        cumulative_count_all +=(int(row['cumulative_count']))
+        cumulative_verified_all +=(int(row['enrollment_modes.verified.cumulative_count']))
+    
+%>
+<%block name="headextra">
+<link rel="stylesheet" type="text/css" href="${static.url('css/slick.css')}"/>
+</%block>
+
+<%block name="js_extra">
+<script type="text/javascript">
+  $(window).load(function () {
+    if (getParameterByName('next')) {
+      $('#login').trigger("click");
+    }
+  })
+</script>
+<%include file="about_site.html" />
+<script type="text/javascript" src="${static.url('js/slick.min.js')}"></script>
+</%block>
+
+<section class="home">
+  <header class="hero hero-about">
+    <div class="tint-dark">
+      <div class="grid-container grid-manual">
+        <div class="row">
+              <div class="col col-6 sm-col-6 md-col-2" style="color: white"><h3 class="media-heading">Записавшихся</h3><span class="numberCircle">${count_all}</span></div>
+              <div class="col col-6 sm-col-6 md-col-2" style="color: white"> <h3 class="media-heading">За неделю</h3><span class="numberCircle">${count_change_7_days_all}</span></div>
+                <div class="col col-6 sm-col-6 md-col-2"style="color: white"><h3 class="media-heading">Зарегистрированых</h3> <span class="numberCircle">${cumulative_count_all}</span></div>
+                  <div class="col col-3 sm-col-3 md-col-1" style="color: white"><h3 class="media-heading">Курсов</h3> <span class="numberCircle">${totalrows}</span></div>
+                    <div class="col col-3 sm-col-3 md-col-1" style="color: white"><h3 class="media-heading">Партнеров</h3> <span class="numberCircle">${cumulative_verified_all}</span></div>
+                    <div class="col col-6 sm-col-6 md-col-2" style="color: white"><h3 class="media-heading">Верифицированных</h3><span class="numberCircle">${count_all}</span></div>
+                    <div class="col col-6 sm-col-6 md-col-2" style="color: white"> <h3 class="media-heading">Сертификатов</h3><span class="numberCircle">${count_change_7_days_all}</span></div>
+        </div>           
+      </div><!--/.container-->
+    </div><!--/#tint-->
+      <style type="text/css">
+    .numberCircle {
+        display:inline-block;
+    
+        border-radius:50%;
+        border:2px solid;
+    
+        font-size:32px;
+    }
+    
+    .numberCircle:before,
+    .numberCircle:after {
+        content:'\200B';
+        display:inline-block;
+        line-height:0px;
+    
+        padding-top:50%;
+        padding-bottom:50%;
+    }
+    
+    .numberCircle:before {
+        padding-left:8px;
+    }
+    .numberCircle:after {
+        padding-right:8px;
+    }
+    </style>
+  </header>
+
+  <%include file="${courses_list}" />
+
+  <section class="about-section">
+    <div class="about-container">
+    </div>
+  </section>
+</section>
+
+% if show_homepage_promo_video:
+<section id="video-modal" class="modal modal-custom custom-video-modal">
+  <div class="inner-wrapper">
+    <iframe title="YouTube Video" width="640" height="360"
+            src="//www.youtube.com/embed/${homepage_promo_video_youtube_id}?showinfo=0" frameborder="0"
+            allowfullscreen></iframe>
+  </div>
+</section>
+% endif
+
+% if show_signup_immediately is not UNDEFINED:
+## NOTE: This won't work in production, because anonymous views are cached, so it will
+## show either with or without this extra js for 3 minutes at a time.
+<script type="text/javascript">
+  $(window).load(function () {
+    $('#signup_action').trigger("click");
+  });
+</script>
+% endif
+
+<script type="text/javascript">
+    $(".${LANGUAGE_CODE}").css('display', 'block');
+</script>

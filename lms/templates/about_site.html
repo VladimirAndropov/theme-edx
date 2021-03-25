@@ -1,0 +1,114 @@
+<!--
+Campus IL - EdX platform and ecommerce themes
+Copyright (C) 2021 Campus IL
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
+
+## mako
+<%namespace name='static' file='static_content.html'/>
+<%! from django.utils.translation import ugettext as _ %>
+
+<script type="text/template" id="about-content">
+  <div class="grid-manual">
+    <div class="row">
+      <div class="col col-12 text-center">
+        <h2 class="ru">Открытая онлайн-академия Финансового университета — сетевой образовательный проект Финансового университета в области электронного обучения. Проект обеспечивает открытый доступ разным категориям слушателей к авторским курсам и другим учебным материалам от ведущих специалистов в области экономики и управления бизнесом</h2>
+        <h2 class="en">Financial Academy - Personalized Digital Learning for Anyone and for Any Purpose</h2>
+      </div>
+    </div>
+
+    <div class="row about-list text-center">
+      <div class="col col-3 about-list-item">
+        <a href="https://insights.online.fa.ru"  class="col-md-4 col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+        <div class="about-icon">
+          <img src="${static.url('images/ProofPointImage1.png')}" alt=${_("Analytics")} />
+          <p class="ru"><span>Аналитика</span>Cистема анализирования курсов для методистов и преподавателей</p>
+          <p class="ar"><span>الثقافة العالية</span>مجموعة من الدورات من قبل الجامعات الرائدة في البلاد، متوفرة في كل وقت وفي كل زمان</p>
+          <p class="en"><span>Analytics</span>System for analyzing courses for methodologists and teachers</p>
+        </div>
+       </a>
+      </div>
+      <div class="col col-3 about-list-item">
+        <a href="https://online.fa.ru/news"  class="col-md-4 col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                
+        <div class="about-icon">
+          <img src="${static.url('images/ProofPointImage2.png')}" alt=${_("Technical requirements")} />
+          <p class="ru"><span>Технические требования</span>Минимальные параметры для обучения</p>
+          <p class="ar"><span>المرحلة الثانوية</span>دورات رقميّة لطلاب المرحلة الثانوية، مقدمة من قبل افضل المعلمين. دراسة لامتحانات البجروت بمساعدة الأدوات والتقنيات المتقدمة. ذلك حسب المستوى وحسب النمط الشخصي الملائم لكل طالب واسلوبه الشخصيّ</p>
+          <p class="en"><span>Technical requirements</span>Online courses for high school students brought to you by the best teachers</p>
+        </div></a>
+      </div>
+      <div class="col col-3 about-list-item">
+        <a href="https://online.fa.ru/faq"  class="col-md-4 col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                     
+        <div class="about-icon">
+          <img src="${static.url('images/ProofPointImage3.png')}" alt=${_("FAQ")} />
+          <p class="ru"><span>Часто задаваемые вопросы</span>и ответы на частые вопросы</p>
+          <p class="ar"><span>سوق العمل ومهارات شخصية</span>دورات مهنية مبنية بتوافق تام مع سوق العمل الاسرائيلي، من خلالها تستطيعون تقديم المهنة الشخصية إلى خطوط جديدة</p>
+          <p class="en"><span>FAQ</span>Frequency asked question</p>
+        </div></a>
+      </div>
+       <div class="col col-3 about-list-item">
+        <a href="https://online.fa.ru/about"  class="col-md-4 col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    
+        <div class="about-icon">
+          <img src="${static.url('images/ProofPointImage4.png')}" alt=${_("About platform")} />
+          <p class="ru"><span>О платформе</span>Информация для ознакомления</p>
+          <p class="ar"><span>دورات ومحاضرات حكومية</span>دورات تأهيل خاصة لموظفي شتى المكاتب الحكومية</p>
+          <p class="en"><span>About platform</span>Information for review</p>
+        </div></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-12 text-center">
+        <a href="/contact" class="btn-neutral">${_("Contact Us")}</a>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script>
+  $(document).ready(function() {
+    $(".about-container").html( $("#about-content").html());
+    addSlider();
+    $(".${LANGUAGE_CODE}").css('display', 'block');
+
+  });
+  $(window).resize(function(){
+      addSlider();
+      $(".${LANGUAGE_CODE}").css('display', 'block');
+  });
+
+  function addSlider(){
+    var isMobileResolution = $(window).width() < 768,
+        sliderExists = $(".about-list").hasClass("slick-slider");
+
+    $(".about-list").toggleClass("slidable", isMobileResolution);
+
+    if (isMobileResolution) {    //Second condition will avoid the multiple calls from resize
+      if (!sliderExists) {
+        $(".about-list").find(".about-list-item").removeClass('col col-3');
+        $(".slidable").slick({
+          nextArrow: '<i class="fa fa-angle-right"></i>',
+          prevArrow: '<i class="fa fa-angle-left"></i>',
+          rtl: "${LANGUAGE_CODE}" == "en"? false : true,
+        });
+      }
+    } else {
+       $(".about-container").html($("#about-content").html());
+    }
+  }
+</script>

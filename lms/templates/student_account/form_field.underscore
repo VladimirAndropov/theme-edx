@@ -1,0 +1,118 @@
+<!--
+Campus IL - EdX platform and ecommerce themes
+Copyright (C) 2021 Campus IL
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<div class="form-field <%=type%>-<%= name %>">
+    <% if ( type !== 'checkbox' ) { %>
+        <label for="<%= form %>-<%= name %>">
+            <span class="label-text"><%= label %></span>
+            <% if ( required && requiredStr && (type !== 'hidden') ) { %><span class="label-required"><%= requiredStr %></span><% } %>
+            <% if ( !required && optionalStr && (type !== 'hidden') ) { %><span class="label-optional"><%= optionalStr %></span><% } %>
+        </label>
+        <% if (supplementalLink && supplementalText) { %>
+            <div class="supplemental-link">
+                <a href="<%- supplementalLink %>" target="_blank" rel="noopener"><%- supplementalText %></a>
+            </div>
+        <% } %>
+    <% } %>
+
+    <% if ( type === 'select' ) { %>
+        <select id="<%= form %>-<%= name %>"
+            name="<%= name %>"
+            class="input-inline"
+            <% if ( instructions ) { %>
+            aria-describedby="<%= form %>-<%= name %>-desc"
+            <% } %>
+            <% if ( typeof errorMessages !== 'undefined' ) {
+                _.each(errorMessages, function( msg, type ) {%>
+                    data-errormsg-<%= type %>="<%= msg %>"
+            <%  });
+            } %>
+            <% if ( required ) { %> aria-required="true" required<% } %>>
+        <% _.each(options, function(el) { %>
+            <option value="<%= el.value%>"<% if ( el.default ) { %> data-isdefault="true" selected<% } %>><%= el.name %></option>
+        <% }); %>
+        </select>
+        <% if ( instructions ) { %> <span class="tip tip-input" id="<%= form %>-<%= name %>-desc"><%= instructions %></span><% } %>
+        <% if (supplementalLink && supplementalText) { %>
+            <div class="supplemental-link">
+                <a href="<%- supplementalLink %>" target="_blank" rel="noopener"><%- supplementalText %></a>
+            </div>
+        <% } %>
+    <% } else if ( type === 'textarea' ) { %>
+        <textarea id="<%= form %>-<%= name %>"
+            type="<%= type %>"
+            name="<%= name %>"
+            class="input-block"
+            <% if ( instructions ) { %>
+            aria-describedby="<%= form %>-<%= name %>-desc"
+            <% } %>
+            <% if ( restrictions.min_length ) { %> minlength="<%= restrictions.min_length %>"<% } %>
+            <% if ( restrictions.max_length ) { %> maxlength="<%= restrictions.max_length %>"<% } %>
+            <% if ( typeof errorMessages !== 'undefined' ) {
+                _.each(errorMessages, function( msg, type ) {%>
+                    data-errormsg-<%= type %>="<%= msg %>"
+            <%  });
+            } %>
+            <% if ( required ) { %> aria-required="true" required<% } %> ></textarea>
+            <% if ( instructions ) { %> <span class="tip tip-input" id="<%= form %>-<%= name %>-desc"><%= instructions %></span><% } %>
+            <% if (supplementalLink && supplementalText) { %>
+                <div class="supplemental-link">
+                    <a href="<%- supplementalLink %>" target="_blank" rel="noopener"><%- supplementalText %></a>
+                </div>
+            <% } %>
+    <% } else { %>
+        <% if ( type === 'checkbox' ) { %>
+            <% if (supplementalLink && supplementalText) { %>
+                <div class="supplemental-link">
+                    <a href="<%- supplementalLink %>" target="_blank" rel="noopener"><%- supplementalText %></a>
+                </div>
+            <% } %>
+        <% } %>
+        <input id="<%= form %>-<%= name %>"
+           type="<%= type %>"
+           name="<%= name %>"
+           class="input-block <% if ( type === 'checkbox' ) { %>checkbox<% } %>"
+            <% if ( instructions ) { %> aria-describedby="<%= form %>-<%= name %>-desc" <% } %>
+            <% if ( restrictions.min_length ) { %> minlength="<%= restrictions.min_length %>"<% } %>
+            <% if ( restrictions.max_length ) { %> maxlength="<%= restrictions.max_length %>"<% } %>
+            <% if ( required ) { %> required<% } %>
+            <% if ( typeof errorMessages !== 'undefined' ) {
+                _.each(errorMessages, function( msg, type ) {%>
+                    data-errormsg-<%= type %>="<%= msg %>"
+            <%  });
+            } %>
+            <% if ( placeholder ) { %> placeholder="<%= placeholder %>"<% } %>
+            value="<%- defaultValue %>"
+        />
+        <% if ( type === 'checkbox') { %>
+            <label for="<%= form %>-<%= name %>">
+                <span class="label-text"><%= label %></span>
+                <% if ( required && requiredStr ) { %><span class="label-required"><%= requiredStr %></span><% } %>
+                <% if ( !required && optionalStr ) { %><span class="label-optional"><%= optionalStr %></span><% } %>
+            </label>
+        <% } %>
+        <% if ( instructions ) { %> <span class="tip tip-input" id="<%= form %>-<%= name %>-desc"><%= instructions %></span><% } %>
+        <% if ( type !== 'checkbox' && type !== 'password' ) { %>
+            <div class="triangle-input" id="<%= form %>-<%= name %>-triangle" ></div>
+        <% } %>
+    <% } %>
+
+    <% if( form === 'login' && name === 'password' ) { %>
+        <button type="button" class="forgot-password field-link"><%- gettext("Forgot password?") %></button>
+    <% } %>
+</div>

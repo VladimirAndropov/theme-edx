@@ -1,0 +1,82 @@
+<!--
+Campus IL - EdX platform and ecommerce themes
+Copyright (C) 2021 Campus IL
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
+
+## mako
+<%! from django.utils.translation import ugettext as _ %>
+<%inherit file="../main.html" />
+<%namespace name='static' file='../static_content.html'/>
+
+<section class="home">
+  <header class="hero-catalog hero-small hero">
+    <div class="tint-dark">
+      <div class="grid-container grid-manual">
+        <div class="row">
+          <div class="col col-10 sm-col-10 md-col-10 lg-col-8 xl-col-6 text-tint">
+            <p class="ru">Education is only one click away</p>
+            <p class="ar">تعليم بمتناول اليد ومُتاح على بعد نقرة واحدة فقط</p>
+            <p class="en">Education is only one click away</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="courses-section">
+    <div class="courses-container">
+      <div class="highlighted-courses">
+        <section class="courses">
+          <div class="grid-manual">
+
+            <div class="row">
+              <div class="col col-12 text-center">
+                <h2>
+                  <span class="course-list-heading ru">инициатива Финансового университета</span>
+                  <span class="course-list-heading ar"> كامبوس- المشروع الوطني للتعليم الرقمّي، من قبل وزارة المساواة الإجتماعيةا</span>
+                  <span class="course-list-heading en"> Campus – Israel’s national digital learning initiative, from the Ministry for Social Equality  </span>
+                </h2>
+              </div>
+            </div>
+
+            <div class="row program-list">
+              % for program in programs_list:
+               <div class="col col-12 sm-col-12 md-col-4 lg-col-4">
+                   <%include file="../program.html" args="program=program" />
+               </div>
+              % endfor
+           </div>
+
+            <div class="row course-list">
+              % for course in courses:
+              <div class="col col-12 sm-col-12 md-col-4 lg-col-4">
+                <div class="courses-listing-item">
+                  <%include file="../course.html" args="course=course" />
+                </div>
+              </div>
+              % endfor
+            </div>
+
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+</section>
+
+<script type="text/javascript">
+    $(".${LANGUAGE_CODE}").css('display', 'block');
+</script>

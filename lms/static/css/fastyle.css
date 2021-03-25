@@ -1,0 +1,466 @@
+@media screen and (min-width: 993px) {
+    div.mainmenu-wrapper div.ms-vl-apptile a {
+      margin-right: 10px;
+    }
+    div.mainmenu-wrapper div.ms-vl-apptile:nth-child(4n) a {
+      margin-right: 0;
+    }
+  }
+  div.mainmenu-wrapper .mainmenu-image-wrapper {
+    width: 64px;
+    height: 64px;
+    overflow: hidden;
+    position: relative;
+    background-position: 0 -64px !important;
+  }
+  footer {
+    background: #f2f2f2;
+    padding: 30px 15px;
+  }
+  footer .useful-resources {
+    font-size: 16px;
+    font-size: 1.067em;
+    text-transform: uppercase;
+    margin: 30px 0 20px;
+  }
+  .footer-adress {
+    font-size: 15px;
+    font-size: 1em;
+    color: #666;
+  }
+  .footer_copyright_bottom {
+    font-size: 15px;
+    font-size: 1em;
+    color: #666;
+    margin-top: 30px;
+  }
+  .footer-copyright .copyright {
+    font-family: 'Lora', serif !important;
+    font-size: 18px;
+    font-size: 1.2em;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #666;
+  }
+  ul.footer-links {
+    list-style: none;
+    text-align: right;
+    padding: 0;
+  }
+  ul.footer-links > li {
+    display: inline-block;
+  }
+  ul.footer-links > li a {
+    display: block;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-size: 1em;
+  }
+  ul.footer-links > li:last-child a {
+    padding-right: 0;
+  }
+  div.footer-nav a {
+    display: block;
+    padding: 8px 8px 8px 0;
+    color: #000;
+    font-size: 15px;
+    font-size: 1em;
+    text-decoration: underline;
+  }
+  div.footer-nav a:hover {
+    text-decoration: none;
+  }
+  ul.footer-social {
+    list-style: none;
+    text-align: right;
+    margin-bottom: 0;
+    padding: 0;
+  }
+  ul.footer-social > li {
+    display: inline-block;
+    padding: 0 6px;
+  }
+  ul.footer-social > li:last-child {
+    padding-right: 0;
+  }
+  ul.footer-social > li a {
+    display: block;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    text-decoration: none;
+  }
+  ul.footer-badges {
+    list-style: none;
+    text-align: right;
+    margin: 30px 0px 10px;
+    padding: 0;
+  }
+  ul.footer-badges > li {
+    display: inline-block;
+    padding: 12px 12px 12px 0;
+  }
+  ul.footer-badges > li:last-child {
+    padding-right: 0;
+  }
+  ul.footer-badges > li a {
+    display: block;
+    text-decoration: none;
+  }
+  ul.footer-badges img {
+    display: block;
+  }
+  @media screen and (max-width: 768px) {
+    .footer-copyright,
+    .footer_copyright_bottom {
+      text-align: center;
+    }
+    ul.footer-links,
+    ul.footer-social,
+    ul.footer-badges {
+      text-align: center;
+    }
+    ul.footer-links a,
+    ul.footer-social a {
+      padding: 10px !important;
+    }
+  }
+  @media screen and (max-width: 560px) {
+    ul.footer-badges > li {
+      padding-right: 0;
+    }
+  }
+  #shareWrapper {
+    padding: 30px 30px 0;
+  }
+  #shareWrapper ul.content-social {
+    list-style: none;
+    padding-left: 0;
+    display: inline-block;
+  }
+  #shareWrapper ul.content-social > li {
+    display: inline-block;
+    padding: 0 6px;
+  }
+  #shareWrapper ul.content-social > li a {
+    display: block;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    text-decoration: none;
+  }
+  #shareWrapper ul.content-social > li a span {
+    display: inline-block;
+    vertical-align: middle;
+    color: #bfbfbf;
+  }
+  #shareWrapper ul.content-social > li a:hover span {
+    color: #007d8c;
+  }
+
+  .icon-calendar-pa {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -158px -126px;
+  width: 18px;
+  height: 18px;
+}
+.icon-fb-gray {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -92px -126px;
+  width: 18px;
+  height: 18px;
+}
+.icon-fb-gray:hover {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: 0px -150px;
+  width: 18px;
+  height: 18px;
+}
+.icon-fb-green {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: 0px -150px;
+  width: 18px;
+  height: 18px;
+}
+.icon-in-gray {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -22px -150px;
+  width: 18px;
+  height: 18px;
+}
+.icon-in-gray:hover {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -44px -150px;
+  width: 18px;
+  height: 18px;
+}
+.icon-in-green {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -44px -150px;
+  width: 18px;
+  height: 18px;
+}
+.icon-pencil {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -66px -150px;
+  width: 18px;
+  height: 18px;
+}
+.icon-place {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -88px -150px;
+  width: 18px;
+  height: 18px;
+}
+.icon-place:hover {
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+.icon-tg-gray {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -110px -150px;
+  width: 18px;
+  height: 18px;
+}
+.icon-tg-gray:hover {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -132px -150px;
+  width: 18px;
+  height: 18px;
+}
+.icon-tg-green {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -132px -150px;
+  width: 18px;
+  height: 18px;
+}
+.icon-time {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -154px -150px;
+  width: 18px;
+  height: 18px;
+}
+.icon-time:hover {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -154px -150px;
+  width: 18px;
+  height: 18px;
+}
+.icon-tw-gray {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -182px 0px;
+  width: 18px;
+  height: 18px;
+}
+.icon-tw-gray:hover {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -182px -22px;
+  width: 18px;
+  height: 18px;
+}
+.icon-tw-green {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -182px -22px;
+  width: 18px;
+  height: 18px;
+}
+.icon-vk-gray {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -182px -44px;
+  width: 18px;
+  height: 18px;
+}
+.icon-vk-gray:hover {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -48px -126px;
+  width: 18px;
+  height: 18px;
+}
+.icon-vk-green {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -48px -126px;
+  width: 18px;
+  height: 18px;
+}
+.icon-ya-gray {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -70px -126px;
+  width: 18px;
+  height: 18px;
+}
+.icon-ya-gray:hover {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -182px -66px;
+  width: 18px;
+  height: 18px;
+}
+.icon-ya-green {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -182px -66px;
+  width: 18px;
+  height: 18px;
+}
+.icon-yt-gray {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -114px -126px;
+  width: 18px;
+  height: 18px;
+}
+.icon-yt-gray:hover {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -136px -126px;
+  width: 18px;
+  height: 18px;
+}
+.icon-yt-green {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -136px -126px;
+  width: 18px;
+  height: 18px;
+}
+.icon-fb-white {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -155px -82px;
+  width: 20px;
+  height: 20px;
+}
+.icon-fb-white:hover {
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+.icon-in-white {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: 0px -126px;
+  width: 20px;
+  height: 20px;
+}
+.icon-in-white:hover {
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+.icon-tg-white {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -129px -98px;
+  width: 20px;
+  height: 20px;
+}
+.icon-tg-white:hover {
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+.icon-tw-white {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -155px -34px;
+  width: 20px;
+  height: 20px;
+}
+.icon-tw-white:hover {
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+.icon-vk-white {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -155px -58px;
+  width: 20px;
+  height: 20px;
+}
+.icon-vk-white:hover {
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+.icon-ya-white {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -24px -126px;
+  width: 20px;
+  height: 20px;
+}
+.icon-ya-white:hover {
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+.icon-yt-white {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -105px -98px;
+  width: 20px;
+  height: 20px;
+}
+.icon-yt-white:hover {
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+.icon-google-en {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: 0px -49px;
+  width: 151px;
+  height: 45px;
+}
+.icon-google-ru {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: 0px 0px;
+  width: 151px;
+  height: 45px;
+}
+.icon-resource-email {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -35px -98px;
+  width: 30px;
+  height: 22px;
+}
+.icon-resource-it {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -69px -98px;
+  width: 32px;
+  height: 20px;
+}
+.icon-resource-presentation {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: -155px 0px;
+  width: 23px;
+  height: 30px;
+}
+.icon-resource-wifi {
+    background-image: url(/static/images/_layouts/15/rns.university/img/sprite.png);
+  display: block;
+  background-position: 0px -98px;
+  width: 31px;
+  height: 24px;
+}
